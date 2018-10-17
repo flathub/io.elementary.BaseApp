@@ -58,15 +58,15 @@ modules:
   - name: elementary-theme
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/elementary/stylesheet
-        commit: 4000a3247b2ef264d8a7cf1df6eb4877386562c9
+      - type: archive
+        url: https://github.com/elementary/stylesheet/archive/5.2.0.tar.gz
+        sha256: 4a72ba818f57ba7063e092ccdf0ca8ff23185514d5eda1a5a28fe594e0049835
 
   - name: elementary-icons
     buildsystem: meson
     config-opts:
       - -Dpalettes=false
     sources:
-      - type: git
-        url: https://github.com/elementary/icons
-        commit: 1d23b93d70513cb8636864cf00ef0f27260d62d9
+      - type: archive
+        url: https://github.com/elementary/icons/archive/5.0.tar.gz
+        sha256: 7ef504b8766855e66dfac0fc09135433131cacfdb58bad142151943cf39f6313
