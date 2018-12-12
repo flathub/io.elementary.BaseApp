@@ -28,8 +28,8 @@ modules:
       - --enable-unversioned
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/vala/0.40/vala-0.40.10.tar.xz
-        sha256: fe04f9f95616cfa868ae22e5ac070607e871799f568c38be38761f2f39aa9877
+        url: https://download.gnome.org/sources/vala/0.40/vala-0.40.11.tar.xz
+        sha256: 1fc591258b63cbb0721c784d8a0abedbb178f4205132a7ee3141f32667301576
 
   - name: libgee
     make-install-args:
@@ -52,8 +52,8 @@ modules:
       - /share/applications
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/5.1.0.tar.gz
-        sha256: 4483399c62bf4cf5c26a6b708736b2b80caae8d40a0452be45548f7e8f23e0ed
+        url: https://github.com/elementary/granite/archive/5.2.1.tar.gz
+        sha256: 2166902654f62d300c6990d634f494632aaf14dfe10395dd9ff9d52a503c7ca8
 
   - name: elementary-theme
     buildsystem: meson
@@ -68,5 +68,5 @@ modules:
       - -Dpalettes=false
     sources:
       - type: archive
-        url: https://github.com/elementary/icons/archive/5.0.tar.gz
-        sha256: 7ef504b8766855e66dfac0fc09135433131cacfdb58bad142151943cf39f6313
+        url: https://github.com/elementary/icons/archive/5.0.1.tar.gz
+        sha256: 2bebc52dd62075e29422dac3f3d4ed40abf3cb24823d43f8ef679fd45593cf51
