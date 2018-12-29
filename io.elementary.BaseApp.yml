@@ -51,7 +51,7 @@ modules:
         sha256: 6acce2a4d46a452249c13206ddc1923d23b04cb07b3433ade0f04e2995a78a82
     post-install:
       - install -D io.elementary.desktop.wingpanel.datetime.gschema.xml /app/share/glib-2.0/schemas/io.elementary.desktop.wingpanel.datetime.gschema.xml
-      - glib-compile-schemas /app/glib-2.0/schemas/
+      - glib-compile-schemas /app/share/glib-2.0/schemas/
 
   - name: elementary-theme
     buildsystem: meson
