@@ -41,7 +41,15 @@ modules:
         sha256: 21308ba3ed77646dda2e724c0e8d5a2f8d101fb05e078975a532d7887223c2bb
 
   - name: granite
-    buildsystem: meson
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_INSTALL_LIBDIR=/app/lib 
+      - -DINTROSPECTION_GIRDIR=/app/share/gir-1.0
+      - -DINTROSPECTION_TYPELIBDIR=/app/lib/girepository-1.0
+    cleanup:
+      - /bin
+      - /share/applications
     sources:
       - type: archive
         url: https://github.com/elementary/granite/archive/5.2.2.tar.gz
