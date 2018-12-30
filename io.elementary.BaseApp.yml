@@ -1,7 +1,7 @@
 id: io.elementary.BaseApp
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: "18.08"
+runtime-version: '18.08'
 separate-locales: false
 cleanup:
   - /cache
@@ -28,8 +28,8 @@ modules:
       - --enable-unversioned
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/vala/0.40/vala-0.40.10.tar.xz
-        sha256: fe04f9f95616cfa868ae22e5ac070607e871799f568c38be38761f2f39aa9877
+        url: https://download.gnome.org/sources/vala/0.40/vala-0.40.11.tar.xz
+        sha256: 1fc591258b63cbb0721c784d8a0abedbb178f4205132a7ee3141f32667301576
 
   - name: libgee
     make-install-args:
@@ -52,15 +52,21 @@ modules:
       - /share/applications
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/5.1.0.tar.gz
-        sha256: 4483399c62bf4cf5c26a6b708736b2b80caae8d40a0452be45548f7e8f23e0ed
+        url: https://github.com/elementary/granite/archive/5.2.2.tar.gz
+        sha256: a2bfb717570b2b7ffef8715fae0dcabe7e3de21f6cb9392f1184a57ae6436f6c
+      - type: file
+        url: https://raw.githubusercontent.com/elementary/wingpanel-indicator-datetime/master/data/io.elementary.desktop.wingpanel.datetime.gschema.xml
+        sha256: 6acce2a4d46a452249c13206ddc1923d23b04cb07b3433ade0f04e2995a78a82
+    post-install:
+      - install -D io.elementary.desktop.wingpanel.datetime.gschema.xml /app/share/glib-2.0/schemas/io.elementary.desktop.wingpanel.datetime.gschema.xml
+      - glib-compile-schemas /app/share/glib-2.0/schemas/
 
   - name: elementary-theme
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/elementary/stylesheet/archive/5.2.0.tar.gz
-        sha256: 4a72ba818f57ba7063e092ccdf0ca8ff23185514d5eda1a5a28fe594e0049835
+        url: https://github.com/elementary/stylesheet/archive/5.2.1.tar.gz
+        sha256: b6104a5380a77ea1634706afb749b6ea482e98af970d134fe00a7b0fcb841934
 
   - name: elementary-icons
     buildsystem: meson
@@ -68,5 +74,5 @@ modules:
       - -Dpalettes=false
     sources:
       - type: archive
-        url: https://github.com/elementary/icons/archive/5.0.tar.gz
-        sha256: 7ef504b8766855e66dfac0fc09135433131cacfdb58bad142151943cf39f6313
+        url: https://github.com/elementary/icons/archive/5.0.2.tar.gz
+        sha256: 1749545bd45f79493e0546201b1a7b6199f0d679bb8c85fae6a4f57c57977ad0
