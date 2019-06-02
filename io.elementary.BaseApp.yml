@@ -33,8 +33,8 @@ modules:
       - "/lib/*/gobject-introspection/giscanner/*/*.pyc"
     sources:
       - type: archive
-        url: "https://download.gnome.org/sources/gobject-introspection/1.58/gobject-introspection-1.58.3.tar.xz"
-        sha256: "025b632bbd944dcf11fc50d19a0ca086b83baf92b3e34936d008180d28cdc3c8"
+        url: https://download.gnome.org/sources/gobject-introspection/1.58/gobject-introspection-1.58.3.tar.xz
+        sha256: 025b632bbd944dcf11fc50d19a0ca086b83baf92b3e34936d008180d28cdc3c8
 
   - name: vala
     cleanup-platform:
@@ -57,32 +57,31 @@ modules:
         sha256: bb2802d29a518e8c6d2992884691f06ccfcc25792a5686178575c7111fea4630
 
   - name: granite
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DCMAKE_INSTALL_LIBDIR=/app/lib 
-      - -DINTROSPECTION_GIRDIR=/app/share/gir-1.0
-      - -DINTROSPECTION_TYPELIBDIR=/app/lib/girepository-1.0
+    buildsystem: meson
     cleanup:
       - /bin
       - /share/applications
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/5.2.2.tar.gz
-        sha256: a2bfb717570b2b7ffef8715fae0dcabe7e3de21f6cb9392f1184a57ae6436f6c
-      - type: file
-        url: https://raw.githubusercontent.com/elementary/wingpanel-indicator-datetime/master/data/io.elementary.desktop.wingpanel.datetime.gschema.xml
-        sha256: 6acce2a4d46a452249c13206ddc1923d23b04cb07b3433ade0f04e2995a78a82
-    post-install:
-      - install -D io.elementary.desktop.wingpanel.datetime.gschema.xml /app/share/glib-2.0/schemas/io.elementary.desktop.wingpanel.datetime.gschema.xml
-      - glib-compile-schemas /app/share/glib-2.0/schemas/
-
+        url: https://github.com/elementary/granite/archive/5.2.3.tar.gz
+        sha256: 6ff86a90896690d25016e80e5192f87f6e9045e35ccc1db4747b92086d9b492f
+    modules:
+      - name: wingpanel-datetime-schema
+        buildsystem: simple
+        build-commands:
+          - install -D io.elementary.desktop.wingpanel.datetime.gschema.xml /app/share/glib-2.0/schemas/io.elementary.desktop.wingpanel.datetime.gschema.xml
+        sources:
+          - type: file
+            url: https://raw.githubusercontent.com/elementary/wingpanel-indicator-datetime/2.1.3/data/io.elementary.desktop.wingpanel.datetime.gschema.xml
+            sha256: 6acce2a4d46a452249c13206ddc1923d23b04cb07b3433ade0f04e2995a78a82
+            dest-filename: io.elementary.desktop.wingpanel.datetime.gschema.xml
+  
   - name: elementary-theme
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/elementary/stylesheet/archive/5.2.1.tar.gz
-        sha256: b6104a5380a77ea1634706afb749b6ea482e98af970d134fe00a7b0fcb841934
+        url: https://github.com/elementary/stylesheet/archive/5.2.3.tar.gz
+        sha256: ddc4250110b427dc5485ebb316361ef7595b5b78f7b0f9792ab61b33fa3cc3dd
 
   - name: elementary-icons
     buildsystem: meson
@@ -90,5 +89,5 @@ modules:
       - -Dpalettes=false
     sources:
       - type: archive
-        url: https://github.com/elementary/icons/archive/5.0.2.tar.gz
-        sha256: 1749545bd45f79493e0546201b1a7b6199f0d679bb8c85fae6a4f57c57977ad0
+        url: https://github.com/elementary/icons/archive/5.0.3.tar.gz
+        sha256: 51ea67854f70990227576137498f8145468c4cf98c54417d4415bf702517d10a
