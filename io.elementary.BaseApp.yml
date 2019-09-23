@@ -1,7 +1,7 @@
 id: io.elementary.BaseApp
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: '18.08'
+runtime-version: '19.08'
 separate-locales: false
 cleanup:
   - /cache
