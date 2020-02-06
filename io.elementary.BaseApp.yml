@@ -15,6 +15,8 @@ cleanup:
   - "*.a"
 modules:
   - name: graphviz
+    cleanup:
+      - /share/graphviz
     sources:
       - type: archive
         url: https://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
@@ -63,15 +65,15 @@ modules:
       - /share/applications
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/5.2.5.tar.gz
-        sha256: 1c1cbe94b18a3ba2e3a099206906827d1ecf0c9572c349059fee23b6b0738966
+        url: https://github.com/elementary/granite/archive/5.3.0.tar.gz
+        sha256: c3bc3a884e78764dcc41dd7a9a3b4f3489d2cd103b8c664c0357b2d6236e17ed
   
   - name: elementary-theme
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/elementary/stylesheet/archive/5.2.5.tar.gz
-        sha256: 85fc9293c55e9bf3699b79435b6bc555ec0b4827900eb53e9ca6910afd55fcfb
+        url: https://github.com/elementary/stylesheet/archive/5.4.1.tar.gz
+        sha256: 53182b8003b0b3d1c5520b42a3ee9c6d6d305a81a4571082e0e8bea763ac11cf
 
   - name: elementary-icons
     buildsystem: meson
