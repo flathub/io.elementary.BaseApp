@@ -65,15 +65,15 @@ modules:
       - /share/applications
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/5.3.0.tar.gz
-        sha256: c3bc3a884e78764dcc41dd7a9a3b4f3489d2cd103b8c664c0357b2d6236e17ed
+        url: https://github.com/elementary/granite/archive/5.4.0.tar.gz
+        sha256: 8194031cac3b87d84a3fab9c30270485ce73f8b8ec23f26c9152b6859c8a18fd
   
   - name: elementary-theme
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/elementary/stylesheet/archive/5.4.1.tar.gz
-        sha256: 53182b8003b0b3d1c5520b42a3ee9c6d6d305a81a4571082e0e8bea763ac11cf
+        url: https://github.com/elementary/stylesheet/archive/5.4.2.tar.gz
+        sha256: 3bc37723daf4ce0b7c9ce4c125ef0055affe8d6654981388ec87d4a23a1ae0ec
 
   - name: elementary-icons
     buildsystem: meson
@@ -81,5 +81,5 @@ modules:
       - -Dpalettes=false
     sources:
       - type: archive
-        url: https://github.com/elementary/icons/archive/5.0.4.tar.gz
-        sha256: 48f0ccb3796bfe2d02acab972ddbdd240c97b09f4b0e914aa1f49a453f86d1a0
+        url: https://github.com/elementary/icons/archive/5.3.1.tar.gz
+        sha256: 67b349453f8990e399521bb8d96f4caf4c23a27cf22cbc18ddacf0e817c59e12
