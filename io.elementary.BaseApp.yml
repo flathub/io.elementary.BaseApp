@@ -17,6 +17,8 @@ cleanup:
 modules:
   - name: graphviz
     cleanup:
+      - /include
+      - /bin
       - /share/graphviz
     sources:
       - type: archive
