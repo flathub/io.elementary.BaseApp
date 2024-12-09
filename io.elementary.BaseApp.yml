@@ -46,6 +46,7 @@ modules:
     cleanup:
       - /bin
       - /share/applications
+      - /share/metainfo
     sources:
       - type: archive
         url: https://github.com/elementary/granite/archive/6.2.0.tar.gz
@@ -53,6 +54,8 @@ modules:
   
   - name: elementary-theme
     buildsystem: meson
+    cleanup:
+      - /share/metainfo
     sources:
       - type: archive
         url: https://github.com/elementary/stylesheet/archive/8.1.0.tar.gz
@@ -63,6 +66,8 @@ modules:
 
   - name: elementary-icons
     buildsystem: meson
+    cleanup:
+      - /share/metainfo
     config-opts:
       - -Dpalettes=false
     sources:
