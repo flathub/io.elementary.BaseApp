@@ -1,7 +1,7 @@
 id: io.elementary.BaseApp
-runtime: org.freedesktop.Platform
-sdk: org.freedesktop.Sdk
-runtime-version: '24.08'
+runtime: org.gnome.Platform
+sdk: org.gnome.Sdk
+runtime-version: '47'
 branch: circe-24.08
 separate-locales: false
 cleanup:
@@ -15,39 +15,6 @@ cleanup:
   - "*.la"
   - "*.a"
 modules:
-  - name: graphviz
-    cleanup:
-      - /include
-      - /bin
-      - /share/graphviz
-    sources:
-      - type: archive
-        url: https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/12.1.2/graphviz-12.1.2.tar.gz
-        sha256: f219ef266ffe68ba7d41eec8a716f1dfa1152e1987ff50f3b1dde6aa19f5d7de
-
-  - name: vala
-    cleanup-platform:
-      - "*"
-    config-opts:
-      - --enable-vapigen
-      - --enable-unversioned
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/vala/0.56/vala-0.56.17.tar.xz
-        sha256: 26100c4e4ef0049c619275f140d97cf565883d00c7543c82bcce5a426934ed6a
-
-  - name: libgee
-    make-install-args:
-      - girdir=/app/share/gir-1.0
-      - typelibdir=/app/lib/girepository-1.0
-    build-options:
-      # GCC 14 doesn't like this libgee release
-      cflags: -Wno-error=incompatible-pointer-types
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/libgee/0.20/libgee-0.20.6.tar.xz
-        sha256: 1bf834f5e10d60cc6124d74ed3c1dd38da646787fbf7872220b8b4068e476d4d
-
   - name: sassc
     cleanup:
       - '*'
