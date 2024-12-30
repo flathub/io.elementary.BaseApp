@@ -90,3 +90,15 @@ modules:
           - type: archive
             url: https://gitlab.freedesktop.org/xorg/app/xcursorgen/-/archive/xcursorgen-1.0.8/xcursorgen-xcursorgen-1.0.8.tar.gz
             sha256: 390204bd72ab722e42c8a09f0a6e918a964ad8cefee02148d771c9be11e533e1
+
+  - name: libportal
+    buildsystem: meson
+    config-opts:
+      - -Dbackend-qt5=disabled
+      - -Dbackend-qt6=disabled
+      - -Ddocs=false
+      - -Dtests=false
+    sources:
+      - type: archive
+        url: https://github.com/flatpak/libportal/releases/download/0.9.0/libportal-0.9.0.tar.xz
+        sha256: 113910f06f39387328805397053d20c7acafb7388d8e6cd5e06e05efb9690735
