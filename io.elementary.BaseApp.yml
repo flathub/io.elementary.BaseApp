@@ -16,8 +16,6 @@ cleanup:
   - "*.a"
 modules:
   - name: sassc
-    cleanup:
-      - '*'
     buildsystem: autotools
     sources:
       - type: archive
@@ -29,8 +27,6 @@ modules:
           - autoreconf -si
     modules:
       - name: libsass
-        cleanup:
-          - '*'
         buildsystem: autotools
         sources:
           - type: archive
