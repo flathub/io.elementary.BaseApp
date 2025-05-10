@@ -47,7 +47,19 @@ modules:
       - type: archive
         url: https://github.com/elementary/granite/archive/6.2.0.tar.gz
         sha256: 067d31445da9808a802fca523630c3e4b84d2d7c78ae547ced017cb7f3b9c6b5
-  
+
+  - name: granite-7
+    buildsystem: meson
+    config-opts:
+      - -Ddemo=false
+    cleanup:
+      - /share/icons
+      - /share/metainfo
+    sources:
+      - type: archive
+        url: https://github.com/elementary/granite/archive/refs/tags/7.6.0.tar.gz
+        sha256: 4b4e4f7f86eb3f55116faec42ebd87e04c3e424d82715ecd967ed39540dca5ef
+
   - name: elementary-theme
     buildsystem: meson
     cleanup:
