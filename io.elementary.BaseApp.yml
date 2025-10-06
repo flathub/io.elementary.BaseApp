@@ -66,8 +66,8 @@ modules:
       - /share/metainfo
     sources:
       - type: archive
-        url: https://github.com/elementary/stylesheet/archive/8.2.0.tar.gz
-        sha256: c63a344a312a72adb20af370d5810d0961b7fbf88c67fc5d08b1226bbcba7dc6
+        url: https://github.com/elementary/stylesheet/archive/8.2.1.tar.gz
+        sha256: d0b4f41dc7df37c0eaa6c7daa61d896e4520279b9edfd89e7714ede36794ffc6
     post-install:
       # Fallback "elementary", the theme name before stylesheet 6.0.0, to the blueberry variant
       - ln -s /app/share/themes/io.elementary.stylesheet.blueberry /app/share/themes/elementary
