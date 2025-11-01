@@ -95,8 +95,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/elementary/icons.git
-        tag: 8.1.0
-        commit: 241be59c7f75ba186d0beba376ae44574f52372b
+        tag: 8.2.0
+        commit: 6ddbb535af70a5ceeff5e1fec05d9b0562641b2a
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -107,8 +107,8 @@ modules:
         sources:
           - type: git
             url: https://gitlab.freedesktop.org/xorg/app/xcursorgen.git
-            tag: xcursorgen-1.0.8
-            commit: 21303eac3b67f39c24036cdd65860a223e779e5b
+            tag: xcursorgen-1.0.9
+            commit: 3d0909b630ca82401489411c9b496de14f664c55
             x-checker-data:
               type: git
               tag-pattern: ^xcursorgen-([\d.]+)$
