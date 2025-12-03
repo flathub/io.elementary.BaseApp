@@ -70,7 +70,7 @@ modules:
           type: git
           tag-pattern: ^([\d.]+)$
 
-  - name: elementary-theme
+  - name: stylesheet
     buildsystem: meson
     cleanup:
       - /share/metainfo
@@ -86,7 +86,7 @@ modules:
       # Fallback "elementary", the theme name before stylesheet 6.0.0, to the blueberry variant
       - ln -s /app/share/themes/io.elementary.stylesheet.blueberry /app/share/themes/elementary
 
-  - name: elementary-icons
+  - name: icons
     buildsystem: meson
     cleanup:
       - /share/metainfo
