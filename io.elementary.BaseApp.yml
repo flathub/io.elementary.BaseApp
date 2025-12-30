@@ -56,15 +56,15 @@ modules:
       - /share/applications
       - /share/metainfo
     sources:
-      - type: git
-        url: https://github.com/elementary/granite.git
-        tag: 6.2.0
-        commit: 4ab145c28bb3db6372fe519e8bd79c645edfcda3
+      - type: archive
+        url: https://github.com/elementary/granite/archive/6.2.0.tar.gz
+        sha256: 067d31445da9808a802fca523630c3e4b84d2d7c78ae547ced017cb7f3b9c6b5
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
-          versions:
-            <: 7.0.0
+          type: json
+          url: https://api.github.com/repos/elementary/granite/releases
+          version-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .tag_name'
+          url-query: '"https://github.com/elementary/granite/archive/" + ([.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .tag_name) + ".tar.gz"'
+          timestamp-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .published_at'
 
   - name: granite-7
     buildsystem: meson
@@ -74,26 +74,30 @@ modules:
       - /share/icons
       - /share/metainfo
     sources:
-      - type: git
-        url: https://github.com/elementary/granite.git
-        tag: 7.7.0
-        commit: ae94e9123bbf1dea8db38bedd8a925dbd5a8f812
+      - type: archive
+        url: https://github.com/elementary/granite/archive/7.7.0.tar.gz
+        sha256: e1fe86f95a528fbcc45bbf85b668935dbd2cbf5d128f824d100ff02031ab5441
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/elementary/granite/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/elementary/granite/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
 
   - name: stylesheet
     buildsystem: meson
     cleanup:
       - /share/metainfo
     sources:
-      - type: git
-        url: https://github.com/elementary/stylesheet.git
-        tag: 8.2.2
-        commit: 9cfb767873d583f6ed29e96cf27728bb69fd9237
+      - type: archive
+        url: https://github.com/elementary/stylesheet/archive/8.2.2.tar.gz
+        sha256: b5f016c9e7c528d18bb1fa7a405bc294af336a9d967574a66eb22e5fffb89aa9
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/elementary/stylesheet/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/elementary/stylesheet/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
     post-install:
       # Fallback "elementary", the theme name before stylesheet 6.0.0, to the blueberry variant
       - ln -s /app/share/themes/io.elementary.stylesheet.blueberry /app/share/themes/elementary
@@ -105,25 +109,27 @@ modules:
     config-opts:
       - -Dpalettes=false
     sources:
-      - type: git
-        url: https://github.com/elementary/icons.git
-        tag: 8.2.0
-        commit: 6ddbb535af70a5ceeff5e1fec05d9b0562641b2a
+      - type: archive
+        url: https://github.com/elementary/icons/archive/8.2.0.tar.gz
+        sha256: 22b235d796d374b22cade7183f9acb8584a551fecd865927a9f0e6562ed67392
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/elementary/icons/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/elementary/icons/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
     modules:
       - name: xcursorgen
         cleanup:
           - '*'
         sources:
-          - type: git
-            url: https://gitlab.freedesktop.org/xorg/app/xcursorgen.git
-            tag: xcursorgen-1.0.9
-            commit: 3d0909b630ca82401489411c9b496de14f664c55
+          - type: archive
+            url: https://xorg.freedesktop.org/archive/individual/app/xcursorgen-1.0.9.tar.xz
+            sha256: 0cc9e156ac84ca16ea902710af35e0faffa51d13797071e3b4b6cc7cbd493bbc
             x-checker-data:
-              type: git
-              tag-pattern: ^xcursorgen-([\d.]+)$
+              type: anitya
+              project-id: 21210
+              url-template: https://xorg.freedesktop.org/archive/individual/app/xcursorgen-$version.tar.xz
 
   - name: libportal
     buildsystem: meson
@@ -133,10 +139,12 @@ modules:
       - -Ddocs=false
       - -Dtests=false
     sources:
-      - type: git
-        url: https://github.com/flatpak/libportal.git
-        tag: 0.9.1
-        commit: 8f5dc8d192f6e31dafe69e35219e3b707bde71ce
+      - type: archive
+        url: https://github.com/flatpak/libportal/archive/0.9.1.tar.gz
+        sha256: ea422b789ae487e04194d387bea031fd7485bf88a18aef8c767f7d1c29496a4e
         x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+          type: json
+          url: https://api.github.com/repos/flatpak/libportal/releases/latest
+          version-query: .tag_name
+          url-query: '"https://github.com/flatpak/libportal/archive/" + .tag_name + ".tar.gz"'
+          timestamp-query: .published_at
