@@ -124,12 +124,12 @@ modules:
           - '*'
         sources:
           - type: archive
-            url: https://gitlab.freedesktop.org/xorg/app/xcursorgen/-/archive/xcursorgen-1.0.9/xcursorgen-xcursorgen-1.0.9.tar.gz
-            sha256: 9560a00238c6edd8b857547b275d83c762ad6f398362f93668ee9bdbfb542659
+            url: https://xorg.freedesktop.org/archive/individual/app/xcursorgen-1.0.9.tar.xz
+            sha256: 0cc9e156ac84ca16ea902710af35e0faffa51d13797071e3b4b6cc7cbd493bbc
             x-checker-data:
               type: anitya
-              project-id: 15029
-              url-template: https://gitlab.freedesktop.org/xorg/app/xcursorgen/-/archive/xcursorgen-$version/xcursorgen-xcursorgen-$version.tar.gz
+              project-id: 21210
+              url-template: https://xorg.freedesktop.org/archive/individual/app/xcursorgen-$version.tar.xz
 
 
   - name: libportal
