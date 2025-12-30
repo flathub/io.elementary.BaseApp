@@ -62,9 +62,9 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/elementary/granite/releases
-          version-query: '[.[] | .tag_name | select(. < "7.0.0")] | max'
-          url-query: '([.[] | .tag_name | select(. < "7.0.0")] | max) as $version | "https://github.com/elementary/granite/archive/" + $version + ".tar.gz"'
-          timestamp-query: '([.[] | .tag_name | select(. < "7.0.0")] | max) as $version | .[] | select(.tag_name == $version) | .published_at'
+          version-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .tag_name'
+          url-query: '"https://github.com/elementary/granite/archive/" + ([.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .tag_name) + ".tar.gz"'
+          timestamp-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .published_at'
 
   - name: granite-7
     buildsystem: meson
