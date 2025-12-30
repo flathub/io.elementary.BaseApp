@@ -123,13 +123,14 @@ modules:
         cleanup:
           - '*'
         sources:
-          - type: git
-            url: https://gitlab.freedesktop.org/xorg/app/xcursorgen.git
-            tag: xcursorgen-1.0.9
-            commit: 3d0909b630ca82401489411c9b496de14f664c55
+          - type: archive
+            url: https://gitlab.freedesktop.org/xorg/app/xcursorgen/-/archive/xcursorgen-1.0.9/xcursorgen-xcursorgen-1.0.9.tar.gz
+            sha256: 9560a00238c6edd8b857547b275d83c762ad6f398362f93668ee9bdbfb542659
             x-checker-data:
-              type: git
-              tag-pattern: ^xcursorgen-([\d.]+)$
+              type: anitya
+              project-id: 15029
+              url-template: https://gitlab.freedesktop.org/xorg/app/xcursorgen/-/archive/xcursorgen-$version/xcursorgen-xcursorgen-$version.tar.gz
+
 
   - name: libportal
     buildsystem: meson
