@@ -131,7 +131,6 @@ modules:
               project-id: 21210
               url-template: https://xorg.freedesktop.org/archive/individual/app/xcursorgen-$version.tar.xz
 
-
   - name: libportal
     buildsystem: meson
     config-opts:
