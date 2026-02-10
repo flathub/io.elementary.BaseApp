@@ -62,9 +62,12 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/elementary/granite/releases
-          version-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .tag_name'
-          url-query: '"https://github.com/elementary/granite/archive/" + ([.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .tag_name) + ".tar.gz"'
-          timestamp-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name) | .published_at'
+          version-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name)
+            | .tag_name'
+          url-query: '"https://github.com/elementary/granite/archive/" + ([.[] | select(.tag_name
+            | test("^6\\..*$"))] | max_by(.tag_name) | .tag_name) + ".tar.gz"'
+          timestamp-query: '[.[] | select(.tag_name | test("^6\\..*$"))] | max_by(.tag_name)
+            | .published_at'
 
   - name: granite-7
     buildsystem: meson
@@ -75,13 +78,14 @@ modules:
       - /share/metainfo
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/7.7.0.tar.gz
-        sha256: e1fe86f95a528fbcc45bbf85b668935dbd2cbf5d128f824d100ff02031ab5441
+        url: https://github.com/elementary/granite/archive/7.8.0.tar.gz
+        sha256: df3c3a034ebf5d00d702e418e38c4c68f231930449f6ea2ea7e564364d149b1a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/elementary/granite/releases/latest
           version-query: .tag_name
-          url-query: '"https://github.com/elementary/granite/archive/" + .tag_name + ".tar.gz"'
+          url-query: '"https://github.com/elementary/granite/archive/" + .tag_name
+            + ".tar.gz"'
           timestamp-query: .published_at
 
   - name: stylesheet
@@ -96,7 +100,8 @@ modules:
           type: json
           url: https://api.github.com/repos/elementary/stylesheet/releases/latest
           version-query: .tag_name
-          url-query: '"https://github.com/elementary/stylesheet/archive/" + .tag_name + ".tar.gz"'
+          url-query: '"https://github.com/elementary/stylesheet/archive/" + .tag_name
+            + ".tar.gz"'
           timestamp-query: .published_at
     post-install:
       # Fallback "elementary", the theme name before stylesheet 6.0.0, to the blueberry variant
@@ -116,7 +121,8 @@ modules:
           type: json
           url: https://api.github.com/repos/elementary/icons/releases/latest
           version-query: .tag_name
-          url-query: '"https://github.com/elementary/icons/archive/" + .tag_name + ".tar.gz"'
+          url-query: '"https://github.com/elementary/icons/archive/" + .tag_name +
+            ".tar.gz"'
           timestamp-query: .published_at
     modules:
       - name: xcursorgen
@@ -146,5 +152,6 @@ modules:
           type: json
           url: https://api.github.com/repos/flatpak/libportal/releases/latest
           version-query: .tag_name
-          url-query: '"https://github.com/flatpak/libportal/archive/" + .tag_name + ".tar.gz"'
+          url-query: '"https://github.com/flatpak/libportal/archive/" + .tag_name
+            + ".tar.gz"'
           timestamp-query: .published_at
