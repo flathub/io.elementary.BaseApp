@@ -78,8 +78,8 @@ modules:
       - /share/metainfo
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/7.7.0.tar.gz
-        sha256: e1fe86f95a528fbcc45bbf85b668935dbd2cbf5d128f824d100ff02031ab5441
+        url: https://github.com/elementary/granite/archive/7.8.0.tar.gz
+        sha256: df3c3a034ebf5d00d702e418e38c4c68f231930449f6ea2ea7e564364d149b1a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/elementary/granite/releases/latest
