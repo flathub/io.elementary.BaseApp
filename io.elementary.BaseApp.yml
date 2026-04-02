@@ -1,7 +1,7 @@
 id: io.elementary.BaseApp
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
-runtime-version: '49'
+runtime-version: '50'
 branch: circe-25.08
 separate-locales: false
 cleanup:
