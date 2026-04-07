@@ -164,3 +164,22 @@ modules:
           url-query: '"https://github.com/flatpak/libportal/archive/" + .tag_name
             + ".tar.gz"'
           timestamp-query: .published_at
+
+  # Cleate a script that apps can clean up development-related files from the BaseApp
+  # Inspired from:
+  # https://github.com/flathub/io.qt.qtwebengine.BaseApp/blob/e0a292389792523d0f78534bf5597a539a21dc64/io.qt.qtwebengine.BaseApp.json#L97-L134
+  - name: cleanup-BaseApp
+    buildsystem: simple
+    sources:
+      - type: script
+        dest-filename: cleanup-BaseApp.sh
+        commands:
+          - rm -rfv ${FLATPAK_DEST}/include
+          - rm -rfv ${FLATPAK_DEST}/lib/girepository-1.0
+          - rm -rfv ${FLATPAK_DEST}/lib/pkgconfig
+          - rm -rfv ${FLATPAK_DEST}/share/gir-1.0
+          - rm -rfv ${FLATPAK_DEST}/share/vala
+          - rm -rfv ${FLATPAK_DEST}/lib/libgee*
+          - rm -rfv ${FLATPAK_DEST}/lib/libsass*
+    build-commands:
+      - install cleanup-BaseApp.sh -t ${FLATPAK_DEST}
