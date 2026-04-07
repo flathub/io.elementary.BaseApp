@@ -31,10 +31,8 @@ modules:
 
   # granite-7 and stylesheet require the sassc execute file
   - name: sassc
-    # We don't clean up the sassc execute file because some apps might build their own granite version
-    # and use this baseapp for the theme and icons
-    #cleanup:
-    #  - '*'
+    cleanup:
+      - '*'
     buildsystem: autotools
     sources:
       - type: archive
@@ -46,10 +44,8 @@ modules:
           - autoreconf -si
     modules:
       - name: libsass
-        # Cleanup development-related files because the sassc execute file only requires *.so
         cleanup:
-          - /include
-          - /lib/pkgconfig
+          - '*'
         buildsystem: autotools
         sources:
           - type: archive
