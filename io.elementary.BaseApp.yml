@@ -39,6 +39,9 @@ modules:
           - autoreconf -si
     modules:
       - name: libsass
+        cleanup:
+          - /include
+          - /lib/pkgconfig
         buildsystem: autotools
         sources:
           - type: archive
