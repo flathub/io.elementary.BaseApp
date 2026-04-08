@@ -15,6 +15,8 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
+  # GNOME runtime already provides this but we ship it so that developers can use this BaseApp
+  # with freedesktop runtime that does not provide it
   - name: libgee
     buildsystem: autotools
     build-options:
@@ -27,7 +29,11 @@ modules:
           type: gnome
           name: libgee
 
+  # granite-7 and stylesheet require the sassc execute file
   - name: sassc
+    # TODO: Comment out when releasing circe-26.08
+    #cleanup:
+    #  - '*'
     buildsystem: autotools
     sources:
       - type: archive
@@ -39,6 +45,9 @@ modules:
           - autoreconf -si
     modules:
       - name: libsass
+        # TODO: Comment out when releasing circe-26.08
+        #cleanup:
+        #  - '*'
         buildsystem: autotools
         sources:
           - type: archive
@@ -52,6 +61,7 @@ modules:
   - name: granite
     buildsystem: meson
     cleanup:
+      # Cleanup unnecessary demo
       - /bin
       - /share/applications
       - /share/metainfo
@@ -74,6 +84,7 @@ modules:
     config-opts:
       - -Ddemo=false
     cleanup:
+      # Cleanup unnecessary icons that only used in the metainfo
       - /share/icons
       - /share/metainfo
     sources:
@@ -155,3 +166,25 @@ modules:
           url-query: '"https://github.com/flatpak/libportal/archive/" + .tag_name
             + ".tar.gz"'
           timestamp-query: .published_at
+
+  # Cleate a script that apps can clean up development-related files from the BaseApp
+  # Inspired from:
+  # https://github.com/flathub/io.qt.qtwebengine.BaseApp/blob/e0a292389792523d0f78534bf5597a539a21dc64/io.qt.qtwebengine.BaseApp.json#L97-L134
+  - name: cleanup-BaseApp
+    buildsystem: simple
+    sources:
+      - type: script
+        dest-filename: cleanup-BaseApp.sh
+        commands:
+          # TODO: Remove sassc from here in favor of cleanup in the sassc module itself
+          - rm -rfv ${FLATPAK_DEST}/bin/sassc
+          - rm -rfv ${FLATPAK_DEST}/include
+          - rm -rfv ${FLATPAK_DEST}/lib/girepository-1.0
+          - rm -rfv ${FLATPAK_DEST}/lib/pkgconfig
+          - rm -rfv ${FLATPAK_DEST}/share/gir-1.0
+          - rm -rfv ${FLATPAK_DEST}/share/vala
+          - rm -rfv ${FLATPAK_DEST}/lib/libgee*
+          # TODO: Remove libsass from here in favor of cleanup in the libsass module itself
+          - rm -rfv ${FLATPAK_DEST}/lib/libsass*
+    build-commands:
+      - install cleanup-BaseApp.sh -t ${FLATPAK_DEST}
