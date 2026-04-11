@@ -31,9 +31,8 @@ modules:
 
   # granite-7 and stylesheet require the sassc execute file
   - name: sassc
-    # TODO: Comment out when releasing circe-26.08
-    #cleanup:
-    #  - '*'
+    cleanup:
+      - '*'
     buildsystem: autotools
     sources:
       - type: archive
@@ -45,9 +44,8 @@ modules:
           - autoreconf -si
     modules:
       - name: libsass
-        # TODO: Comment out when releasing circe-26.08
-        #cleanup:
-        #  - '*'
+        cleanup:
+          - '*'
         buildsystem: autotools
         sources:
           - type: archive
@@ -176,14 +174,10 @@ modules:
       - type: script
         dest-filename: cleanup-BaseApp.sh
         commands:
-          # TODO: Remove sassc from here in favor of cleanup in the sassc module itself
-          - rm -rfv ${FLATPAK_DEST}/bin/sassc
           - rm -rfv ${FLATPAK_DEST}/include
           - rm -rfv ${FLATPAK_DEST}/lib/girepository-1.0
           - rm -rfv ${FLATPAK_DEST}/lib/pkgconfig
           - rm -rfv ${FLATPAK_DEST}/share/gir-1.0
           - rm -rfv ${FLATPAK_DEST}/share/vala
-          # TODO: Remove libsass from here in favor of cleanup in the libsass module itself
-          - rm -rfv ${FLATPAK_DEST}/lib/libsass*
     build-commands:
       - install cleanup-BaseApp.sh -t ${FLATPAK_DEST}
