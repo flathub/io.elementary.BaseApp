@@ -15,9 +15,9 @@ cleanup:
   - '*.la'
   - '*.a'
 modules:
-  # GNOME runtime already provides this but we ship it so that developers can use this BaseApp
-  # with freedesktop runtime that does not provide it
   - name: libgee
+    cleanup:
+      - '*'
     buildsystem: autotools
     build-options:
       cflags: -Wno-error=incompatible-pointer-types
