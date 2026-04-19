@@ -29,12 +29,10 @@ while it's not available on Flathub.
 id: io.github.yourusername.yourrepositoryname
 
 # Base on the elementary BaseApp to use libraries like granite.
-# You can find all available base-versions at:
-# https://github.com/flathub/io.elementary.BaseApp/branches/all?query=branch%2F
 base: io.elementary.BaseApp
 base-version: circe-25.08
 
-# You would typically use either GNOME or freedesktop platform instead of the elementary one.
+# Use either GNOME or freedesktop platform instead of the elementary one.
 # runtime-version doesn't need to match with the runtime-version that the BaseApp is based on.
 runtime: org.gnome.Platform
 runtime-version: '50'
@@ -55,7 +53,7 @@ cleanup:
   - /share/gir-1.0
   - /share/vala
 
-# Cleanup development-related files inherited from the BaseApp to reduce package size of the app.
+# Cleanup development-related files from the BaseApp to reduce package size of the app.
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
