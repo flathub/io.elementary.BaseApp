@@ -55,7 +55,7 @@ cleanup:
   - /share/gir-1.0
   - /share/vala
 
-# Cleanup development-related files inherited from the BaseApp to reduce package size of your app.
+# Cleanup development-related files inherited from the BaseApp to reduce package size of the app.
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
