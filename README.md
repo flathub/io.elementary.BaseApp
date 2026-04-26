@@ -28,12 +28,9 @@ while it's not available on Flathub.
 ```yaml
 id: io.github.yourusername.yourrepositoryname
 
-# Base on the elementary BaseApp to use libraries like granite.
 base: io.elementary.BaseApp
 base-version: circe-25.08
 
-# Use either GNOME or freedesktop platform instead of the elementary one.
-# runtime-version doesn't need to match with the runtime-version that the BaseApp is based on.
 runtime: org.gnome.Platform
 runtime-version: '50'
 sdk: org.gnome.Sdk
@@ -53,7 +50,6 @@ cleanup:
   - /share/gir-1.0
   - /share/vala
 
-# Cleanup development-related files from the BaseApp to reduce package size of the app.
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
@@ -63,4 +59,24 @@ modules:
     sources:
       - type: dir
         path: .
+```
+
+## Supported Runtimes
+You would typically use either `org.gnome.Platform` or `org.freedesktop.Platform` instead of `io.elementary.Platform`.
+Other runtimes that available on Flathub might also work but we don't support them.
+
+`runtime-version` doesn't need to match with the one that the BaseApp is based on.
+
+```yaml
+runtime: org.gnome.Platform
+runtime-version: '50'
+sdk: org.gnome.Sdk
+```
+
+## Cleanup
+You can cleanup development-related files from the BaseApp to reduce package size of the app.
+
+```yaml
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
 ```
