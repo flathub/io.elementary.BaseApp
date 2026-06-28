@@ -157,8 +157,8 @@ modules:
       - -Dtests=false
     sources:
       - type: archive
-        url: https://github.com/flatpak/libportal/archive/0.9.1.tar.gz
-        sha256: ea422b789ae487e04194d387bea031fd7485bf88a18aef8c767f7d1c29496a4e
+        url: https://github.com/flatpak/libportal/archive/0.10.0.tar.gz
+        sha256: e1b6913c6d9015bfa918ace86f82c30940982add97aed9c18cc929c5327054fd
         x-checker-data:
           type: json
           url: https://api.github.com/repos/flatpak/libportal/releases/latest
