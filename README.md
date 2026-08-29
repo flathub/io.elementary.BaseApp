@@ -13,6 +13,7 @@ when the base runtime is EOL. The current list of supported branches is:
 ## Features
 This base application provides the following libraries:
 
+- [libgee](https://gitlab.gnome.org/GNOME/libgee)
 - [granite](https://github.com/elementary/granite/tree/master)
 - [granite-7](https://github.com/elementary/granite/tree/granite-7)
 - [stylesheet](https://github.com/elementary/stylesheet)
