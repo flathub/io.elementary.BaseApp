@@ -74,6 +74,22 @@ runtime-version: '50'
 sdk: org.gnome.Sdk
 ```
 
+Note that you would need to use `org.freedesktop.Sdk.Extension.vala` extension to build Vala source codes
+when using `org.freedesktop.Platform`; see [its README](https://github.com/flathub/org.freedesktop.Sdk.Extension.vala)
+for details.
+
+```yaml
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
+
+build-options:
+  prepend-path: /usr/lib/sdk/vala/bin/
+  prepend-ld-library-path: /usr/lib/sdk/vala/lib
+```
+
 ## Cleanup
 You can cleanup development-related files from the BaseApp to reduce package size of the app.
 
