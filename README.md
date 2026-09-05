@@ -86,7 +86,7 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.vala
 
 build-options:
-  prepend-path: /usr/lib/sdk/vala/bin/
+  prepend-path: /usr/lib/sdk/vala/bin
   prepend-ld-library-path: /usr/lib/sdk/vala/lib
 ```
 
