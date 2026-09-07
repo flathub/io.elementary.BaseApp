@@ -1,9 +1,14 @@
 id: io.elementary.BaseApp
-runtime: org.gnome.Platform
-sdk: org.gnome.Sdk
-runtime-version: '50'
 branch: tanit-26.08
+runtime: org.freedesktop.Platform
+runtime-version: '26.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
 separate-locales: false
+build-options:
+  prepend-path: /usr/lib/sdk/vala/bin
+  prepend-ld-library-path: /usr/lib/sdk/vala/lib
 cleanup:
   - /cache
   - /man
@@ -29,7 +34,7 @@ modules:
           type: gnome
           name: libgee
 
-  # granite-7 and stylesheet require the sassc execute file
+  # libadwaita, granite-7, and stylesheet require the sassc execute file
   - name: sassc
     cleanup:
       - '*'
@@ -55,6 +60,45 @@ modules:
             dest-filename: autogen.sh
             commands:
               - autoreconf -si
+
+  - name: gtk4
+    buildsystem: meson
+    cleanup:
+      - /bin
+      - /share/bash-completion
+      - /share/gettext
+      - /share/glib-2.0
+      - /share/gtk-4.0
+    config-opts:
+      - -Dintrospection=enabled
+      - -Dbuild-demos=false
+      - -Dbuild-testsuite=false
+      - -Dbuild-examples=false
+      - -Dbuild-tests=false
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/gtk/4.22/gtk-4.22.4.tar.xz
+        sha256: 51bd9f60c7d23a665a556c7364c21fb2e4e282566b3e7e092455e8f910330893
+        x-checker-data:
+          type: gnome
+          name: gtk
+          stable-only: true
+          version-scheme: odd-minor-is-unstable
+
+  - name: libadwaita
+    buildsystem: meson
+    config-opts:
+      - -Dtests=false
+      - -Dexamples=false
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.3.tar.xz
+        sha256: fc59b37028fe0126308e7b805d2f6e4e80227080a1797715e5e6286b8111e723
+        x-checker-data:
+          type: gnome
+          name: libadwaita
+    modules:
+      - shared-modules/appstream/appstream-compose.json
 
   - name: granite
     buildsystem: meson
