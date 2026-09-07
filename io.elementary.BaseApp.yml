@@ -2,7 +2,7 @@ id: io.elementary.BaseApp
 runtime: org.gnome.Platform
 sdk: org.gnome.Sdk
 runtime-version: '50'
-branch: circe-25.08
+branch: tanit-26.08
 separate-locales: false
 cleanup:
   - /cache
