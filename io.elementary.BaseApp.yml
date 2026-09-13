@@ -64,11 +64,7 @@ modules:
   - name: gtk4
     buildsystem: meson
     cleanup:
-      - /bin
-      - /share/bash-completion
-      - /share/gettext
-      - /share/glib-2.0
-      - /share/gtk-4.0
+      - '*'
     config-opts:
       - -Dintrospection=enabled
       - -Dbuild-demos=false
@@ -87,6 +83,8 @@ modules:
 
   - name: libadwaita
     buildsystem: meson
+    cleanup:
+      - '*'
     config-opts:
       - -Dtests=false
       - -Dexamples=false
