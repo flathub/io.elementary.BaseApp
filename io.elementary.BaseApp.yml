@@ -19,8 +19,6 @@ modules:
     cleanup:
       - '*'
     buildsystem: autotools
-    build-options:
-      cflags: -Wno-error=incompatible-pointer-types
     sources:
       - type: archive
         url: https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz
