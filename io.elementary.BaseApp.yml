@@ -71,33 +71,16 @@ modules:
       - -Dbuild-tests=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtk/4.24/gtk-4.24.0.tar.xz
-        sha256: 28ba4ac1c04f86eac09b79a163cb163a4c2b54442d9f7eccc04679062a581044
+        url: https://download.gnome.org/sources/gtk/4.22/gtk-4.22.5.tar.xz
+        sha256: 7fd725deb2cb3f8dc218ad862c5056ff8548f49d3b0e4081796e444c22d19686
         x-checker-data:
           type: gnome
           name: gtk
           stable-only: true
           version-scheme: odd-minor-is-unstable
-    modules:
-      # gtk >= 4.24 requires glib >= 2.90
-      - name: glib
-        cleanup:
-          - '*'
-        config-opts:
-          - -Ddocumentation=false
-          - -Dglib_debug=disabled
-          - -Dintrospection=enabled
-          - -Dtests=false
-        buildsystem: meson
-        sources:
-          - type: archive
-            url: https://download.gnome.org/sources/glib/2.90/glib-2.90.0.tar.xz
-            sha256: 17d15cac2af80a33271127408e0abc2748eb297c595c2a26409e81e14e7d1b8f
-            x-checker-data:
-              type: gnome
-              name: glib
-              stable-only: true
-              version-scheme: odd-minor-is-unstable
+          versions:
+            # gtk >= 4.24 requires glib >= 2.90 which fd.o runtime 26.08 doesn't have
+            <: '4.24.0'
 
   - name: libadwaita
     buildsystem: meson
@@ -108,11 +91,14 @@ modules:
       - -Dexamples=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libadwaita/1.10/libadwaita-1.10.0.tar.xz
-        sha256: b1bf56239269d101a6391ad4553c910eff9cc6170b803916405477ef60a66c84
+        url: https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.4.tar.xz
+        sha256: f5ab3453ee743dc293cdf96d6821789cd20e8d125d9b41637703c12bfa4162ee
         x-checker-data:
           type: gnome
           name: libadwaita
+          versions:
+            # libadwaita >= 1.10 requires gtk >= 4.24
+            <: '1.10'
     modules:
       - shared-modules/appstream/appstream-compose.json
 
