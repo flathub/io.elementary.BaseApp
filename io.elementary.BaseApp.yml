@@ -79,7 +79,7 @@ modules:
           stable-only: true
           version-scheme: odd-minor-is-unstable
           versions:
-            # gtk >= 4.24 requires glib >= 2.90 which fd.o runtime 26.08 doesn't have
+            # gtk >= 4.24.0 requires glib >= 2.90.0 which fd.o runtime 26.08 doesn't have
             <: '4.24.0'
 
   - name: libadwaita
@@ -97,8 +97,8 @@ modules:
           type: gnome
           name: libadwaita
           versions:
-            # libadwaita >= 1.10 requires gtk >= 4.24
-            <: '1.10'
+            # libadwaita >= 1.10.0 requires gtk >= 4.24.0
+            <: '1.10.0'
     modules:
       - shared-modules/appstream/appstream-compose.json
 
