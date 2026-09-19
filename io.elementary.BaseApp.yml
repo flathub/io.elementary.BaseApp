@@ -71,8 +71,8 @@ modules:
       - -Dbuild-tests=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtk/4.22/gtk-4.22.4.tar.xz
-        sha256: 51bd9f60c7d23a665a556c7364c21fb2e4e282566b3e7e092455e8f910330893
+        url: https://download.gnome.org/sources/gtk/4.24/gtk-4.24.0.tar.xz
+        sha256: 28ba4ac1c04f86eac09b79a163cb163a4c2b54442d9f7eccc04679062a581044
         x-checker-data:
           type: gnome
           name: gtk
@@ -88,8 +88,8 @@ modules:
       - -Dexamples=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.3.tar.xz
-        sha256: fc59b37028fe0126308e7b805d2f6e4e80227080a1797715e5e6286b8111e723
+        url: https://download.gnome.org/sources/libadwaita/1.10/libadwaita-1.10.0.tar.xz
+        sha256: b1bf56239269d101a6391ad4553c910eff9cc6170b803916405477ef60a66c84
         x-checker-data:
           type: gnome
           name: libadwaita
