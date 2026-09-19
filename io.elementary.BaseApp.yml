@@ -84,10 +84,10 @@ modules:
         cleanup:
           - '*'
         config-opts:
-          - -Dtests=false
           - -Ddocumentation=false
           - -Dglib_debug=disabled
           - -Dintrospection=enabled
+          - -Dtests=false
         buildsystem: meson
         sources:
           - type: archive
@@ -96,6 +96,8 @@ modules:
             x-checker-data:
               type: gnome
               name: glib
+              stable-only: true
+              version-scheme: odd-minor-is-unstable
 
   - name: libadwaita
     buildsystem: meson
