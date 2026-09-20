@@ -9,6 +9,7 @@ when the base runtime is EOL. The current list of supported branches is:
 |Baseapp Branch      |Base Runtime           |
 |:-------------------|:----------------------|
 |`branch/circe-25.08`|org.gnome.Platform//50 |
+|`branch/tanit-26.08`|org.gnome.Platform//51 |
 
 ## Features
 This base application provides the following libraries:
@@ -30,10 +31,10 @@ while it's not available on Flathub.
 id: io.github.yourusername.yourrepositoryname
 
 base: io.elementary.BaseApp
-base-version: circe-25.08
+base-version: tanit-26.08
 
 runtime: org.gnome.Platform
-runtime-version: '50'
+runtime-version: '51'
 sdk: org.gnome.Sdk
 
 command: io.github.yourusername.yourrepositoryname
@@ -70,7 +71,7 @@ Other runtimes that available on Flathub might also work but we don't support th
 
 ```yaml
 runtime: org.gnome.Platform
-runtime-version: '50'
+runtime-version: '51'
 sdk: org.gnome.Sdk
 ```
 
@@ -80,7 +81,7 @@ for details.
 
 ```yaml
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.vala
