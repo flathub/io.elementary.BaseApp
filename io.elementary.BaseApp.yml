@@ -144,8 +144,6 @@ modules:
               project-id: 21210
               url-template: https://xorg.freedesktop.org/archive/individual/app/xcursorgen-$version.tar.xz
 
-  - shared-modules/libportal/libportal.json
-
   # Cleate a script that apps can clean up development-related files from the BaseApp
   # Inspired from:
   # https://github.com/flathub/io.qt.qtwebengine.BaseApp/blob/e0a292389792523d0f78534bf5597a539a21dc64/io.qt.qtwebengine.BaseApp.json#L97-L134
