@@ -144,24 +144,7 @@ modules:
               project-id: 21210
               url-template: https://xorg.freedesktop.org/archive/individual/app/xcursorgen-$version.tar.xz
 
-  - name: libportal
-    buildsystem: meson
-    config-opts:
-      - -Dbackend-qt5=disabled
-      - -Dbackend-qt6=disabled
-      - -Ddocs=false
-      - -Dtests=false
-    sources:
-      - type: archive
-        url: https://github.com/flatpak/libportal/archive/0.11.0.tar.gz
-        sha256: 71482afa68b3373268e7df7feaf96ce99eb1a6701f60ff43a0d1b2594605eae8
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/flatpak/libportal/releases/latest
-          version-query: .tag_name
-          url-query: '"https://github.com/flatpak/libportal/archive/" + .tag_name
-            + ".tar.gz"'
-          timestamp-query: .published_at
+  - shared-modules/libportal/libportal.json
 
   # Cleate a script that apps can clean up development-related files from the BaseApp
   # Inspired from:
